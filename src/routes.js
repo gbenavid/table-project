@@ -8,11 +8,12 @@ const routes = [
     importPath: '/Home.js',
     name: 'Home',
     path: '/',
+    tableId: 'one',
   },
   {
     importPath: '/About.js',
     name: 'About',
-    path: '/',
+    path: '/about',
   },
 ];
 

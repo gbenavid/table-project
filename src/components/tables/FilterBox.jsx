@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CheckInput from 'components/forms/CheckInput';
@@ -8,7 +8,6 @@ const StyledWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
   grid-row-gap: 5px;
-  max-height: 300px;
   overflow-y: scroll;
   margin-bottom: 30px;
   background-color: var(--border-light);
@@ -43,7 +42,11 @@ const FilterBox = ({
             key={`filter-${index}`}
             onChange={() => {
               if (handleFilter) {
-                handleFilter({ key: id, value: option });
+                handleFilter({
+                  key: id,
+                  value: option,
+                  isSelected: selectedOptions.includes(option),
+                });
               }
             }}
             checked={selectedOptions.includes(option)}

@@ -126,11 +126,11 @@ const CheckInput = React.forwardRef(
         ref={ref}
         {...props}
       />
-      <label htmlFor={id}>
+      <Label htmlFor={id}>
         <LabelText boldLabel={boldLabel} hideLabel={hideLabel}>
           {label}
         </LabelText>
-      </label>
+      </Label>
     </CheckWrap>
   )
 );

@@ -53,8 +53,8 @@ const Loading = ({ className, noSideBar }) => (
 
 export const SmallLoading = styled(Loading)`
   position: relative;
-  width: 100%;
-  min-height: 200px;
+  min-width: 1000px;
+  min-height: 1000px;
   left: initial;
 `;
 

@@ -104,28 +104,6 @@ const RightArrow = styled(PageArrow)`
   transform: scaleX(-1);
 `;
 
-const RowCountSelect = styled.select`
-  margin: 0 auto 0 0;
-  display: flex;
-  align-items: center;
-
-  label {
-    display: inline;
-    margin-right: 20px;
-  }
-
-  input {
-    width: 47px;
-
-    ${screen.below(
-      bp.mobileMid,
-      `
-      font-size: ${rem(16)};
-    `
-    )}
-  }
-`;
-
 const PageLink = ({ pageNum, isCurrentPage, onChangePage, ...props }) => (
   <LinkWrap isCurrent={isCurrentPage} {...props}>
     <UnstyledButton
@@ -143,6 +121,7 @@ const Pagination = ({
   limit = 10,
   currentPage,
   onChangePage,
+  tableId,
   ...props
 }) => {
   const totalPages = Math.ceil(total / limit);
@@ -169,7 +148,7 @@ const Pagination = ({
     if (i === 1 || i === totalPages) continue;
     pages.push(
       <PageLink
-        key={`pagination-page-${i}`}
+        key={`${tableId}-pagination-page-${i}`}
         pageNum={i}
         isCurrentPage={currentPage === i}
         onChangePage={onChangePage}

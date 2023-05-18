@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import loadable from '@loadable/component';
 import { Helmet } from 'react-helmet';
 import GlobalStyle from './styles/global-style';
@@ -20,23 +20,16 @@ const App = () => {
       />
 
       <Router>
-        <Switch>
-          {routes?.map((route) => (
+        {/* <Home tableId="two" /> */}
+        <Routes>
+          {routes.map((route) => (
             <Route
               path={route.path}
               key={route.path}
-              exact={route.path === '/' || route.exact}
-              render={(props) => (
-                <AsyncPage
-                  importPath={route.importPath}
-                  privateRoute={route.private}
-                  access={route.access}
-                  {...props}
-                />
-              )}
+              element={<AsyncPage {...route} />}
             />
           ))}
-        </Switch>
+        </Routes>
       </Router>
 
       <GlobalStyle />

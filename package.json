@@ -11,7 +11,7 @@
     "react-data-table-component": "^6.11.6",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^6.11.2",
     "react-scripts": "4.0.1",
     "styled-components": "^5.2.0",
     "superior-mq": "^1.0.1",

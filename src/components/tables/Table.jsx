@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import DataTable from 'react-data-table-component';
-import screen from 'superior-mq';
-import { bp } from 'styles/helpers';
 import { rem } from 'polished';
 import { SmallLoading } from 'components/Loading';
 import { formatCommaNumbers } from 'util/formatText';
@@ -39,9 +37,11 @@ const StyledTable = styled(DataTable).attrs((props) => ({
   customStyles: customStyles,
   progressComponent: <SmallLoading />,
 }))`
+  overflow-y: scroll;
   color: var(--black);
-  margin-bottom: 20px;
+  margin: 0 auto;
   font-size: ${rem(15)};
+  width: 800px;
 
   .rdt_TableCol {
     font-size: inherit;

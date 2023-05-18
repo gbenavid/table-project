@@ -15,11 +15,19 @@ import { intersection } from 'lodash';
  * @param {ParamsObject} params The params object to use for filtering results.
  * @param {string} tableId The ID of the requesting table.
  */
-export const getCollection = async (params) =>
+export const getCollection = async (params, tableId) =>
   new Promise((resolve) => {
     try {
-      const { functions, segments, page } = params || {};
-      const limit = 10;
+      const functions =
+        params.get(`${tableId}_functions`) === ''
+          ? []
+          : params.get(`${tableId}_functions`).split(',');
+      const segments =
+        params.get(`${tableId}_segments`) === ''
+          ? []
+          : params.get(`${tableId}_segments`).split(',');
+      const page = +params.get(`${tableId}_page`);
+      const limit = +params.get(`${tableId}_limit`);
 
       let filteredItems = data.items;
 
@@ -45,6 +53,6 @@ export const getCollection = async (params) =>
         resolve({ items: filteredItems, total });
       }, 200);
     } catch (e) {
-      console.warn('Error filtering data.');
+      throw new Error(e.message);
     }
   });
